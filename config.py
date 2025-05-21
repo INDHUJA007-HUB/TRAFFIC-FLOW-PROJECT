@@ -1,20 +1,24 @@
+import os
+
 # Configuration for Traffic Flow Project
 
 # Google Cloud Storage settings
-GCP_BUCKET_NAME = "your-traffic-data-bucket"
-GCP_PROJECT_ID = "your-gcp-project-id"
+GCP_BUCKET_NAME = os.getenv("GCP_BUCKET_NAME", "your-traffic-data-bucket")
+GCP_PROJECT_ID = os.getenv("GCP_PROJECT_ID", "your-gcp-project-id")
 
 # Traffic Data API settings
-TRAFFIC_API_URL = "https://traffic-data-api.example.com"
-TRAFFIC_API_KEY = "your-api-key"
+TRAFFIC_API_URL = os.getenv("TRAFFIC_API_URL", "https://your-traffic-api.com")
+TRAFFIC_API_KEY = os.getenv("TRAFFIC_API_KEY", "your-api-key")  # Store securely!
 
 # Streamlit settings
 APP_TITLE = "🚦 Real-Time Traffic Flow Visualization"
-MAPBOX_ACCESS_TOKEN = "your-mapbox-token"
+MAPBOX_ACCESS_TOKEN = os.getenv("MAPBOX_ACCESS_TOKEN", "your-mapbox-token")
 
 # Logging settings
-LOG_FILE = "traffic_app.log"
-DEBUG_MODE = True
+LOG_FILE = os.getenv("LOG_FILE", "traffic_app.log")
+DEBUG_MODE = bool(os.getenv("DEBUG_MODE", True))  # Ensures the value is boolean
 
-# Other project-specific settings
-DATA_REFRESH_INTERVAL = 300  # Time in seconds (5 minutes)
+# Debugging Output
+print(f"Using GCP Bucket: {GCP_BUCKET_NAME}")
+print(f"Traffic API URL: {TRAFFIC_API_URL}")
+print(f"Debug Mode: {DEBUG_MODE}")
