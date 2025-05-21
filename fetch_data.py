@@ -10,7 +10,8 @@ def get_traffic_data():
         # Fetch traffic data from API
         response = requests.get(TRAFFIC_API_URL, headers=headers)
         response.raise_for_status()  # Raise an error for non-200 responses
-        
+        print(response.status_code)  # Check status code
+        print(response.text)  # Check raw data
         # Parse JSON response
         data = response.json()
         
@@ -28,4 +29,4 @@ def get_traffic_data():
     except Exception as e:
         print(f"Unexpected Error: {str(e)}")
 
-    # return None  # Ensures function returns None in case of failure
+    return None  # Ensures function returns None in case of failure
