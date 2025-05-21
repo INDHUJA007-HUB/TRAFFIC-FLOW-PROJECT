@@ -28,4 +28,4 @@ def get_traffic_data():
     except Exception as e:
         print(f"Unexpected Error: {str(e)}")
 
-    return None  # Ensures function returns None in case of failure
+    # return None  # Ensures function returns None in case of failure
