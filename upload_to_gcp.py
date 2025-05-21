@@ -14,9 +14,9 @@ def upload_file_to_gcp(bucket_name, local_filename, gcs_filename):
         blob = bucket.blob(gcs_filename)
         blob.upload_from_filename(local_filename)
         
-        print(f"✅ Successfully uploaded '{local_filename}' to 'gs://{bucket_name}/{gcs_filename}'")
+        print(f"Successfully uploaded '{local_filename}' to 'gs://{bucket_name}/{gcs_filename}'")
     except Exception as e:
-        print(f"❌ Error uploading file to GCP: {e}")
+        print(f"Error uploading file to GCP: {e}")
 
 # Example usage
 if __name__ == "__main__":

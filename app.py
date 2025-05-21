@@ -19,13 +19,13 @@ st.title("🚦 Real-Time Traffic Flow Visualization")
 # Fetch Traffic Data
 df = get_traffic_data()
 if df is None or df.empty:
-    st.error("⚠️ Failed to fetch traffic data.")
+    st.error(" Failed to fetch traffic data.")
 else:
     st.success("✅ Traffic data loaded successfully!")
     df.to_csv("traffic_data.csv", index=False)
 
     # Upload Traffic Data to GCP
-    upload_file_to_gcp(GCP_BUCKET_NAME, "traffic_data.csv", "latest_traffic_data.csv")
+    upload_file_to_gcp(GCP_BUCKET_NAME, "traffic_data.csv")
 
     # Heatmap
     st.subheader("📍 Heatmap of Traffic Density")

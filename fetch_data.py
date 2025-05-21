@@ -18,14 +18,14 @@ def get_traffic_data():
         if isinstance(data, list) and data:  # Check if it's a non-empty list
             return pd.DataFrame(data)
         else:
-            print("⚠️ Invalid response format or empty data.")
+            print("Invalid response format or empty data.")
             return None
     
     except requests.exceptions.RequestException as req_err:
-        print(f"🚨 API Request Failed: {req_err}")
+        print(f"API Request Failed: {req_err}")
     except ValueError:
-        print("⚠️ Error decoding JSON response.")
+        print("Error decoding JSON response.")
     except Exception as e:
-        print(f"❌ Unexpected Error: {str(e)}")
+        print(f"Unexpected Error: {str(e)}")
 
     return None  # Ensures function returns None in case of failure
