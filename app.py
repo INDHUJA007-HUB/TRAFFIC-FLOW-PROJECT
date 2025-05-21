@@ -25,7 +25,7 @@ else:
     df.to_csv("traffic_data.csv", index=False)
 
     # Upload Traffic Data to GCP
-    upload_file_to_gcp(GCP_BUCKET_NAME, "traffic_data.csv")
+    upload_file_to_gcp(GCP_BUCKET_NAME, "traffic_data.csv", "latest_traffic_data.csv")
 
     # Heatmap
     st.subheader("📍 Heatmap of Traffic Density")
