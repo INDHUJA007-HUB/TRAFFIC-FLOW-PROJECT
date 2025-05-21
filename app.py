@@ -2,6 +2,9 @@ import streamlit as st
 import pandas as pd
 import pydeck as pdk
 import altair as alt
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
 from fetch_data import get_traffic_data
 from upload_to_gcp import upload_file_to_gcp
 from config import GCP_BUCKET_NAME, DATA_REFRESH_INTERVAL
