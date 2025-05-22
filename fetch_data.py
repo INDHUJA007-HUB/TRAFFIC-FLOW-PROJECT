@@ -1,32 +1,17 @@
-import requests
 import pandas as pd
-from config import TRAFFIC_API_URL
+import logging
 
 def get_traffic_data():
     try:
-        # Define headers (if required)
-        headers = {"Accept": "application/json"}
-        
-        # Fetch traffic data from API
-        response = requests.get(TRAFFIC_API_URL, headers=headers)
-        response.raise_for_status()  # Raise an error for non-200 responses
-        print(response.status_code)  # Check status code
-        print(response.text)  # Check raw data
-        # Parse JSON response
-        data = response.json()
-        
-        # Validate JSON structure
-        if isinstance(data, list) and data:  # Check if it's a non-empty list
-            return pd.DataFrame(data)
-        else:
-            print("Invalid response format or empty data.")
-            return None
-    
-    except requests.exceptions.RequestException as req_err:
-        print(f"API Request Failed: {req_err}")
-    except ValueError:
-        print("Error decoding JSON response.")
+        # Use absolute path
+        return pd.read_csv("C:/Users/indhu/traffic_flow_project/sample_traffic_data.csv")
     except Exception as e:
-        print(f"Unexpected Error: {str(e)}")
+        logging.error(f"Failed to load local data: {e}")
+        return None
 
-    return None  # Ensures function returns None in case of failure
+if __name__ == "__main__":
+    df = get_traffic_data()
+    if df is not None:
+        print(df.head())
+    else:
+        print("Failed to load traffic data.")

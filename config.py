@@ -7,8 +7,7 @@ GCP_BUCKET_NAME = os.getenv("GCP_BUCKET_NAME", "your-traffic-data-bucket")
 GCP_PROJECT_ID = os.getenv("GCP_PROJECT_ID", "your-gcp-project-id")
 
 # Traffic Data API settings
-TRAFFIC_API_URL = "https://api.trafficdata.com/v1/realtime"
-# TRAFFIC_API_URL = os.getenv("TRAFFIC_API_URL", "https://your-traffic-api.com")
+TRAFFIC_API_URL = os.getenv("TRAFFIC_API_URL", "https://your-traffic-api.com")
 TRAFFIC_API_KEY = os.getenv("TRAFFIC_API_KEY", "your-api-key")  # Store securely!
 
 # Streamlit settings
